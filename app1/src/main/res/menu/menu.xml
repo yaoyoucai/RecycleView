@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/add"
+        android:icon="@mipmap/ic_menu_add"
+        app:showAsAction="always"
+        android:title="add" />
+    <item
+        android:id="@+id/delete"
+        android:icon="@mipmap/ic_menu_delete"
+        app:showAsAction="always"
+        android:title="delete" />
+    <item
+        android:id="@+id/listview"
+        android:title="ListView" />
+    <item
+        android:id="@+id/gridview"
+        android:title="GistView" />
+    <item
+        android:id="@+id/hor_gridview"
+        android:title="HorizontalGistView" />
+    <item
+        android:id="@+id/staggeredview"
+        android:title="StaggeredView" />
+</menu>

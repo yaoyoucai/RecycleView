@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);        mToolbar.inflateMenu(R.menu.menu);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.inflateMenu(R.menu.menu);
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -64,8 +66,17 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
         mAdapter = new SimpleAdapter(getApplicationContext(), mDatas);
+
+        /**
+         * 给recyclerView设置点击事件
+         */
+        mAdapter.setOnclickListener(new SimpleAdapter.OnClickListener() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(MainActivity.this,position+"", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mRecyclerView.setAdapter(mAdapter);
 

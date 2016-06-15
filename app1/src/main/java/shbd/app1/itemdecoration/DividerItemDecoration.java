@@ -1,4 +1,4 @@
-package shbd.app1;/*
+package shbd.app1.itemdecoration;/*
  * Copyright (C) 2014 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -81,8 +81,6 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration
 		for (int i = 0; i < childCount; i++)
 		{
 			final View child = parent.getChildAt(i);
-			android.support.v7.widget.RecyclerView v = new android.support.v7.widget.RecyclerView(
-					parent.getContext());
 			final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
 					.getLayoutParams();
 			final int top = child.getBottom() + params.bottomMargin;

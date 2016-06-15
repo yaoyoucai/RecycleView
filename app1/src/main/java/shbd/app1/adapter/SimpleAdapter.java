@@ -33,8 +33,17 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(SimpleViewHolder holder, int position) {
+    public void onBindViewHolder(final SimpleViewHolder holder, final int position) {
         holder.mTextView.setText(mDatas.get(position));
+        holder.mTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mOnclickListener!=null){
+                    int position=holder.getLayoutPosition();
+                    mOnclickListener.onClick(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -59,5 +68,14 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleViewHolder> {
     public void deleteItem(int position) {
         mDatas.remove(position);
         notifyItemRemoved(position);
+    }
+
+    private OnClickListener mOnclickListener;
+
+    public void setOnclickListener(OnClickListener onclickListener){
+        this.mOnclickListener=onclickListener;
+    }
+    public interface OnClickListener{
+        void onClick(int position);
     }
 }
